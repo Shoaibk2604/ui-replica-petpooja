@@ -166,8 +166,10 @@ const Footer = () => {
           </div>
 
           <div className="text-center order-2 md:order-none">
-            <div className="text-[16px] text-white">Connect with us:</div>
-            <div className="mt-2 flex flex-row   items-center justify-center md:gap-2 gap-6 text-[16px]  text-white sm:flex-row">
+            <div className="md:text-[16px] text-[12px] text-white">
+              Connect with us:
+            </div>
+            <div className="mt-2 flex flex-row   items-center justify-center md:gap-2 gap-6 md:text-[16px] text-[12px]  text-white sm:flex-row">
               <a
                 href="tel:+916358916474"
                 className="inline-flex items-center gap-2 hover:text-white"
@@ -204,7 +206,7 @@ const Footer = () => {
           <div className="text-center md:text-right text-xs text-white/70 order-3 md:order-none">
             <div className="flex items-start justify-center md:justify-end gap-2">
               <IconPin className="mt-0.5 shrink-0 text-white size-4" />
-              <div className="text-[16px] text-white">
+              <div className="md:text-[16px] text-[12px] text-white">
                 <div className="md:hidden">
                   3rd Floor, Tower-A, Gopal Palace, NehruNagar, Ambawadi,
                   Ahmedabad, Gujarat - 380015
@@ -236,7 +238,7 @@ const Footer = () => {
 
         <div className="mt-6 h-px w-full bg-[#008745]/25" />
 
-        <div className="mt-4 text-center text-[14px] text-white">
+        <div className="mt-4 text-center md:text-[14px] text-[12px] text-white">
           2026 - Prayosho Food Services Pvt. Ltd., India · Privacy · Compliance
           · Terms · Cancellation &amp; Refund · Escalation Matrix
         </div>
