@@ -6,26 +6,28 @@ const DashboardBanner = () => {
     <section className="w-full overflow-hidden  text-white">
       <div className="relative">
         <div className="relative mx-auto flex max-w-[1120px] flex-col items-center px-4 pb-16 pt-14 text-center sm:pt-16">
-          <h1 className="max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl sm:leading-tight md:text-6xl">
+          <h1 className="max-w-6xl text-[72px] leading-[1.25] mb-4 sm:mb-6 font-medium sm:font-semibold text-center tracking-[2px]">
             Get Work Done
             <br />
             On Time. Every Time.
           </h1>
 
-          <p className="mt-5 max-w-2xl text-sm leading-6 text-white/55 sm:text-[15px]">
+          <p className="mb-6 max-w-6xl text-[24px] leading-[1.5] text-white/50 text-center ">
             Manage all your tasks and projects from one screen. Send automatic
-            reminders, schedule tasks, assign routine work, use AI for quick
-            reviews, and track progress in real time.
+            reminders,
+            <br /> schedule tasks, assign routine work, use AI for quick
+            reviews,
+            <br /> and track progress in real time.
           </p>
 
           <a
             href="#get-started"
-            className="mt-6 inline-flex items-center justify-center rounded-md bg-[#008745] px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#006d38]"
+            className=" inline-flex items-center justify-center rounded-md bg-[#008745] px-5 py-2.5 text-[16px] font-semibold text-white transition-colors hover:bg-[#006d38]"
           >
             Get a 7 Day FREE Trial
           </a>
 
-          <div className="mt-4 text-xs text-white/40">
+          <div className="text-[#FFFFFF] opacity-50 feature-p leading-[1.25] my-6 text-center">
             Spend less time managing, and more time growing
           </div>
 

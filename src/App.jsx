@@ -14,7 +14,7 @@ function App() {
 
       window.requestAnimationFrame(() => {
         const y = window.scrollY || 0;
-        const next = Math.max(0, Math.min(1, 1 - y / 850));
+        const next = Math.max(0, Math.min(1, 1 - y / 1000));
         setBgOpacity(next);
         ticking = false;
       });
@@ -32,21 +32,21 @@ function App() {
         style={{ opacity: bgOpacity }}
       >
         <div
-          className="absolute -left-40 top-28 h-[820px] w-[820px] blur-3xl"
+          className="absolute -left-40 top-28 h-[920px] w-[920px] blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(0,135,69,0.55) 0%, rgba(0,135,69,0) 62%)",
           }}
         />
         <div
-          className="absolute left-1/2 top-[-260px] h-[860px] w-[860px] -translate-x-1/2 blur-3xl"
+          className="absolute left-1/2 top-[-260px] h-[960px] w-[960px] -translate-x-1/2 blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(0,135,69,0.50) 0%, rgba(0,135,69,0) 64%)",
           }}
         />
         <div
-          className="absolute -right-40 top-36 h-[840px] w-[840px] blur-3xl"
+          className="absolute -right-40 top-36 h-[940px] w-[940px] blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(0,135,69,0.55) 0%, rgba(0,135,69,0) 62%)",
