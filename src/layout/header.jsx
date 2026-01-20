@@ -17,38 +17,38 @@ const Header = () => {
   return (
     <header className="fixed left-0 top-0 z-50 w-full text-white">
       <div className="relative w-full ">
-        <div className="mx-auto flex h-14 items-center justify-between px-8">
+        <div className="mx-auto flex items-center justify-between px-[112px] py-[16px]">
           <a href="/" className="flex items-center gap-2">
             <img
               src={logo}
               alt="Petpooja Tasks"
-              className="h-7 w-auto shrink-0 object-contain sm:h-8 md:h-9"
+              className="h-7 w-auto shrink-0 object-contain sm:h-8 md:h-11"
             />
           </a>
 
           <nav className="hidden md:flex">
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-2 text-sm text-white/85 backdrop-blur-md">
+            <div className="flex items-center gap-4 rounded-full bg-[#0006] px-2 py-1 font-['DM_Sans'] text-[16px] font-medium text-[#d1d5db] backdrop-blur-md">
               <a
                 href="#features"
-                className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-white"
+                className="rounded-full px-2 py-1 transition-colors hover:bg-white/5 text-[#d1d5db]"
               >
                 Features
               </a>
               <a
                 href="#industries"
-                className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-white"
+                className="rounded-full px-2 py-1 transition-colors hover:bg-white/5 text-[#d1d5db]"
               >
                 Industries
               </a>
               <a
                 href="#why-us"
-                className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-white"
+                className="rounded-full px-2 py-1 transition-colors hover:bg-white/5 text-[#d1d5db]"
               >
                 Why Us
               </a>
               <a
                 href="#faqs"
-                className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-white"
+                className="rounded-full px-2 py-1 transition-colors hover:bg-white/5 text-[#d1d5db]"
               >
                 FAQs
               </a>
@@ -57,7 +57,7 @@ const Header = () => {
 
           <a
             href="#get-started"
-            className={`rounded-md bg-[#008745] px-4 py-2 text-xs font-semibold text-white transition-all duration-300 hover:bg-[#006d38] ${
+            className={`cursor-pointer rounded-[8px] bg-[#008745] px-[24px] py-[10px] text-[16px] font-semibold text-white transition-all duration-300 hover:bg-[#008745] hover:font-bold ${
               showCta
                 ? "translate-y-0 opacity-100"
                 : "pointer-events-none translate-y-1 opacity-0"
