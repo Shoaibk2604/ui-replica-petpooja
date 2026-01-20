@@ -1,8 +1,60 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const ProductivitySection = () => {
+  const sectionRef = useRef(null);
+  const leftCountRef = useRef(null);
+  const rightCountRef = useRef(null);
+
+  useEffect(() => {
+    const sectionEl = sectionRef.current;
+    const numberEl = leftCountRef.current;
+    const rightEl = rightCountRef.current;
+    if (!sectionEl || !numberEl) return;
+
+    let started = false;
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || started) return;
+        started = true;
+
+        const obj = { value: 0 };
+        gsap.to(obj, {
+          value: 7,
+          duration: 1.1,
+          ease: "power2.out",
+          onUpdate: () => {
+            numberEl.textContent = String(Math.round(obj.value));
+          },
+        });
+
+        if (rightEl) {
+          const objRight = { value: 0 };
+          gsap.to(objRight, {
+            value: 150,
+            duration: 1.2,
+            ease: "power2.out",
+            onUpdate: () => {
+              rightEl.textContent = `${Math.round(objRight.value)}+`;
+            },
+          });
+        }
+
+        obs.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+
+    obs.observe(sectionEl);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <section className="w-full overflow-hidden text-white productivity-stats relative pb-[140px]">
+    <section
+      ref={sectionRef}
+      className="w-full overflow-hidden text-white productivity-stats relative pb-[140px]"
+    >
       <div className="relative">
         <div className="relative mx-auto max-w-[1120px] px-4 pb-16">
           <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-6xl mb-[140px]">
@@ -12,7 +64,10 @@ const ProductivitySection = () => {
           <div className="productivity-stats relative mx-auto grid max-w-[1080px] items-center gap-10 md:grid-cols-3">
             <div className="text-center md:text-center">
               <div className="productivity-outline-number-left">
-                <div className="productivity-outline-number text-6xl lg:text-7xl xl:text-8xl mb-3">
+                <div
+                  ref={leftCountRef}
+                  className="productivity-outline-number text-6xl lg:text-7xl xl:text-8xl mb-3"
+                >
                   7
                 </div>
                 <div className="text-white/80 font-medium md:text-lg">
@@ -80,7 +135,10 @@ const ProductivitySection = () => {
                 </svg>
               </div>
               <div className="productivity-outline-number-right">
-                <div className="productivity-outline-number text-6xl lg:text-7xl xl:text-8xl mb-3 ">
+                <div
+                  ref={rightCountRef}
+                  className="productivity-outline-number text-6xl lg:text-7xl xl:text-8xl mb-3 "
+                >
                   150+
                 </div>
                 <div className="text-white/80 text-base md:text-lg">

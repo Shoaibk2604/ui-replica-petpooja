@@ -22,7 +22,7 @@ const DashboardBanner = () => {
 
           <a
             href="#get-started"
-            className=" inline-flex items-center justify-center rounded-md bg-[#008745] px-5 py-2.5 text-[16px] font-semibold text-white transition-colors hover:bg-[#006d38]"
+            className="dashboard-cta-bounce inline-flex items-center justify-center rounded-md bg-[#008745] px-5 py-2.5 text-[16px] font-semibold text-white transition-colors hover:bg-[#006d38]"
           >
             Get a 7 Day FREE Trial
           </a>
