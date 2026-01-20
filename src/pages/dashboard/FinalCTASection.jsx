@@ -1,5 +1,3 @@
-import React from "react";
-
 const FinalCTASection = () => {
   return (
     <section className="w-full overflow-hidden text-white">

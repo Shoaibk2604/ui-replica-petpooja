@@ -1,4 +1,3 @@
-import React from "react";
 import DashboardBanner from "./DashboardBanner";
 import ProductivitySection from "./ProductivitySection";
 import CollaborationSection from "./CollaborationSection";

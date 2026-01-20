@@ -1,11 +1,10 @@
-import React from "react";
 import dashboardBanner from "../../assets/dashboard_banner-new.webp";
 
 const DashboardBanner = () => {
   return (
     <section className="w-full overflow-hidden  text-white">
       <div className="relative">
-        <div className="relative mx-auto flex max-w-[1120px] flex-col items-center px-4 pb-16 pt-14 text-center sm:pt-16">
+        <div className="relative mx-auto flex max-w-[1420px] flex-col items-center px-4 pb-16 pt-14 text-center sm:pt-16 md:pt-[122px]">
           <h1 className="max-w-6xl text-[72px] leading-[1.25] mb-4 sm:mb-6 font-medium sm:font-semibold text-center tracking-[2px]">
             Get Work Done
             <br />
