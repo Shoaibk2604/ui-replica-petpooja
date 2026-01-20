@@ -2,29 +2,48 @@ import React from "react";
 
 const ProductivitySection = () => {
   return (
-    <section className="w-full overflow-hidden  text-white">
+    <section className="w-full overflow-hidden text-white productivity-stats relative pb-[140px]">
       <div className="relative">
-        <div className="relative mx-auto max-w-[1120px] px-4 py-16">
-          <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-6xl">
+        <div className="relative mx-auto max-w-[1120px] px-4 pb-16">
+          <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-6xl mb-[140px]">
             Powering Daily Productivity
           </h2>
 
-          <div className="mt-14 grid items-center gap-10 md:grid-cols-3">
-            <div className="text-center md:text-left">
-              <div className="text-6xl font-semibold leading-none text-transparent [text-shadow:0_0_0_#008745] [-webkit-text-stroke:1px_#008745]">
-                7
+          <div className="productivity-stats relative mx-auto grid max-w-[1080px] items-center gap-10 md:grid-cols-3">
+            <div className="text-center md:text-center">
+              <div className="productivity-outline-number-left">
+                <div className="productivity-outline-number text-6xl lg:text-7xl xl:text-8xl mb-3">
+                  7
+                </div>
+                <div className="text-white/80 font-medium md:text-lg">
+                  Supported Languages
+                </div>
               </div>
-              <div className="mt-3 text-sm text-white/60">
-                Supported Languages
+              <div className="productivity-line-left">
+                <svg
+                  width="200"
+                  height="200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="20" cy="20" r="8" fill="#008745" />
+
+                  <path
+                    d="M 20 20 V 120 H 180"
+                    stroke="#008745"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                </svg>
               </div>
             </div>
 
-            <div className="flex justify-center">
-              <div className="relative w-full max-w-[280px] rounded-2xl border border-[#008745]/40 bg-[#0a1a13]/60 px-8 py-16 text-center shadow-[0_0_80px_rgba(0,135,69,0.22)]">
-                <div className="text-6xl font-bold tracking-tight text-[#00c85c]">
+            <div className="relative flex justify-center">
+              <div className="productivity-glow" />
+              <div className="productivity-card relative w-full max-w-[320px] rounded-[22px] border border-[#008745]/35 bg-[#07140e]/55 px-[63px] py-[152px] text-center backdrop-blur-md">
+                <div className="text-[#24D36A] text-6xl lg:text-7xl xl:text-8xl font-semibold mb-4">
                   5K+
                 </div>
-                <div className="mt-6 text-xs font-semibold text-white/80">
+                <div className="text-white text-base md:text-lg mb-1">
                   Tasks Created
                   <br />
                   Daily
@@ -32,14 +51,43 @@ const ProductivitySection = () => {
               </div>
             </div>
 
-            <div className="text-center md:text-right">
-              <div className="text-6xl font-semibold leading-none text-transparent [text-shadow:0_0_0_#008745] [-webkit-text-stroke:1px_#008745]">
-                150+
+            <div className="text-center md:text-center">
+              <div className="productivity-line-right">
+                <svg
+                  width="200"
+                  height="200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    x1="10"
+                    y1="20"
+                    x2="180"
+                    y2="20"
+                    stroke="#008745"
+                    stroke-width="2"
+                  />
+
+                  <line
+                    x1="180"
+                    y1="20"
+                    x2="180"
+                    y2="120"
+                    stroke="#008745"
+                    stroke-width="2"
+                  />
+
+                  <circle cx="180" cy="120" r="8" fill="#008745" />
+                </svg>
               </div>
-              <div className="mt-3 text-sm text-white/60">
-                Ready to Use
-                <br />
-                Templates
+              <div className="productivity-outline-number-right">
+                <div className="productivity-outline-number text-6xl lg:text-7xl xl:text-8xl mb-3 ">
+                  150+
+                </div>
+                <div className="text-white/80 text-base md:text-lg">
+                  Ready to Use
+                  <br />
+                  Templates
+                </div>
               </div>
             </div>
           </div>

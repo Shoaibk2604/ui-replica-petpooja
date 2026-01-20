@@ -4,7 +4,7 @@ const CollaborationSection = () => {
   return (
     <section className="w-full overflow-hidden text-white">
       <div className="relative">
-        <div className="relative mx-auto max-w-[1120px] px-4 py-20">
+        <div className="relative mx-auto max-w-[1120px] px-4 pb-20">
           <h2 className="mx-auto max-w-4xl text-center text-4xl font-semibold leading-tight sm:text-5xl sm:leading-tight md:text-6xl">
             Everything You Need For
             <br />

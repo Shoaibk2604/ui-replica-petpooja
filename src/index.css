@@ -22,6 +22,106 @@ body {
   min-height: 100vh;
 }
 
+.productivity-outline-number {
+  color: black;
+  -webkit-text-stroke: 1px #008745;
+  text-shadow: 0 0 0 #008745;
+  line-height: 1;
+}
+
+.productivity-stats {
+  isolation: isolate;
+}
+
+.productivity-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -124px;
+  width: 920px;
+  height: 140px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 200, 92, 0.55) 0%,
+    rgba(0, 200, 92, 0) 70%
+  );
+  filter: blur(18px);
+  opacity: 0;
+  transition: opacity 700ms ease;
+  z-index: 0;
+}
+
+.productivity-card {
+  background: linear-gradient(
+    180deg, rgba(30, 117, 90, .2), rgba(10, 17, 14, .2)
+  );
+  transform: translateY(0) rotate(0deg);
+  transition: transform 800ms ease;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  z-index: 1;
+  border: 1px solid #008745;
+}
+
+.productivity-line-right{
+  opacity: 0;
+  transform: translateX(0px);
+  transition: transform 600ms ease, opacity 600ms ease;
+  will-change: transform, opacity;
+}
+.productivity-line-left{
+  opacity: 0;
+  transform: translateX(150px);
+  transition: transform 600ms ease, opacity 600ms ease;
+  will-change: transform, opacity;
+}
+.productivity-outline-number-left{
+  transform: translateX(20px) translateY(-10px);;
+   transition: transform 600ms ease, opacity 600ms ease;
+}
+.productivity-outline-number-right{
+  transform: translateX(10px) translateY(-80px);
+   transition: transform 600ms ease, opacity 600ms ease;
+}
+.productivity-stats:hover .productivity-outline-number-left{
+  opacity: 1;
+  transform: translateX(40px) translateY(0px);;
+}
+.productivity-stats:hover .productivity-outline-number-right{
+  opacity: 1;
+  transform: translateX(0px) translateY(-60px);
+}
+.productivity-stats:hover .productivity-line-right {
+  opacity: 1;
+  transform: translateX(-40px);
+}
+.productivity-stats:hover .productivity-line-left {
+  opacity: 1;
+  transform: translateX(180px);
+}
+.productivity-stats:hover .productivity-glow {
+  opacity: 1;
+}
+.productivity-stats:hover .productivity-card {
+  transform: translateY(-18px) rotate(16deg);
+}
+
+.productivity-stats:hover .productivity-connector {
+  opacity: 1;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .productivity-connector {
+    display: none;
+  }
+  .productivity-glow {
+    width: 420px;
+  }
+}
+
 
 
 
