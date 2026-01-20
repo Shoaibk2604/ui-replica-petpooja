@@ -105,7 +105,7 @@ const TaskMobileSliderSection = () => {
               {slides.map((s, idx) => (
                 <SwiperSlide
                   key={idx}
-                  className="!w-[220px] sm:!w-[250px] md:!w-[280px]"
+                  className="!w-[220px] sm:!w-[250px] md:!w-[640px]"
                 >
                   <div className="task-mobile-slide mx-auto">
                     <img
