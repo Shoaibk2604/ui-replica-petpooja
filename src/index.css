@@ -109,7 +109,16 @@ body {
   opacity: 1;
 }
 
-
+.background-substract{
+  background-image: url('./assets/Subtract1.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 559px ;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+}
 
 
 
