@@ -55,54 +55,55 @@ const FAQSection = () => {
   return (
     <section className="w-full overflow-hidden text-white">
       <div className="relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,135,69,0.20)_0%,_rgba(0,0,0,0.92)_55%,_rgba(0,0,0,1)_100%)]" />
+        {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,135,69,0.20)_0%,_rgba(0,0,0,0.92)_55%,_rgba(0,0,0,1)_100%)]" /> */}
 
-        <div className="relative mx-auto max-w-[1120px] px-4 py-20">
-          <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-6xl">
+        <div className="relative mx-auto max-w-[1280px] px-4 py-20">
+          <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-[65px]">
             FAQs
           </h2>
 
-          <div className="mt-12 border-y border-[#008745]/30 bg-transparent divide-y divide-[#008745]/25">
-            {faqs.map((item, idx) => {
-              const open = idx === openIndex;
-              return (
-                <button
-                  key={item.q}
-                  type="button"
-                  onClick={() =>
-                    setOpenIndex((prev) => (prev === idx ? -1 : idx))
-                  }
-                  className="group w-full text-left focus:outline-none !rounded-none !border-0 !bg-transparent !p-0"
-                >
-                  <div
-                    className={`flex w-full items-center justify-between gap-6 px-8 py-6 transition-colors duration-200 ${
-                      open
-                        ? "bg-[#062818]"
-                        : "bg-transparent group-hover:bg-[#062818]"
-                    }`}
+          <div className="mt-12 cursor-pointer border-y border-[#008745]/30 bg-transparent divide-y divide-[#008745]/25">
+            {faqs &&
+              faqs?.map((item, idx) => {
+                const open = idx === openIndex;
+                return (
+                  <button
+                    key={item.q}
+                    type="button"
+                    onClick={() =>
+                      setOpenIndex((prev) => (prev === idx ? -1 : idx))
+                    }
+                    className="group w-full text-left focus:outline-none !rounded-none !border-0 !bg-transparent !p-0"
                   >
-                    <div className="min-w-0">
-                      <div className="text-[15px] font-semibold text-white">
-                        {item.q}
-                      </div>
-                      <div
-                        className={`mt-3 overflow-hidden text-[13px] leading-6 text-white/65 transition-[max-height,opacity] duration-300 ${
-                          open
-                            ? "max-h-[320px] opacity-100"
-                            : "max-h-0 opacity-0"
-                        }`}
-                      >
-                        {item.a}
-                      </div>
-                    </div>
+                    <div
+                      className={
+                        "accordion-item cursor-pointer faq-accordion-item border-t [border-image-source:linear-gradient(90deg,#002111_0%,#008745_55%,#002111_100%)] [border-image-slice:1] px-4 py-4 sm:px-6 sm:py-5 cursor-pointer transition-colors duration-300 hover:bg-[linear-gradient(90deg,_rgba(0,68,35,0.12),_rgba(0,86,45,0.752)_50%,_rgba(0,68,35,0.12))]"
+                      }
+                    >
+                      <div className="flex justify-between">
+                        <div className="min-w-0 ">
+                          <div className="text-[20px] font-semibold text-white">
+                            {item.q}
+                          </div>
+                          <div
+                            className={`overflow-hidden text-[18px] leading-6 text-white/65 transition-[max-height,opacity] duration-300 ${
+                              open
+                                ? "max-h-[320px] opacity-100 mt-3"
+                                : "max-h-0 opacity-0 mt-0"
+                            }`}
+                          >
+                            {item.a}
+                          </div>
+                        </div>
 
-                    <div className="mt-0.5 self-start">
-                      <Chevron open={open} />
+                        <div className="mt-0.5 self-start">
+                          <Chevron open={open} />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </button>
-              );
-            })}
+                  </button>
+                );
+              })}
           </div>
         </div>
       </div>

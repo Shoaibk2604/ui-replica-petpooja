@@ -24,6 +24,9 @@ function App() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -56,6 +59,14 @@ function App() {
 
       <div className="pt-14">
         <Dashboard />
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="fixed right-10 cursor-pointer bottom-10 z-50 flex h-10 w-10 px-5 items-center justify-center rounded-[10px] border border-white/20 bg-white text-[#4B5563] transition-colors hover:border-[#008745] hover:bg-[#008745] hover:text-white"
+          aria-label="Back to top"
+        >
+          <span className="inline-block -rotate-90 text-2xl">{">"}</span>
+        </button>
       </div>
     </div>
   );

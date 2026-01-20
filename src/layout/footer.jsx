@@ -3,8 +3,8 @@ import logo from "../assets/logo.svg";
 
 const IconPhone = (props) => (
   <svg
-    width="14"
-    height="14"
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -22,8 +22,8 @@ const IconPhone = (props) => (
 
 const IconMail = (props) => (
   <svg
-    width="14"
-    height="14"
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -47,8 +47,8 @@ const IconMail = (props) => (
 
 const IconPin = (props) => (
   <svg
-    width="14"
-    height="14"
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -71,57 +71,108 @@ const IconPin = (props) => (
   </svg>
 );
 
-const IconUp = (props) => (
+const IconLinkedIn = (props) => (
   <svg
-    width="18"
-    height="18"
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
-      d="M18 15L12 9L6 15"
+      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2a4 4 0 0 1 2-3Z"
+      fill="currentColor"
+    />
+    <path d="M2 9h4v12H2V9Z" fill="currentColor" />
+    <path d="M4 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z" fill="currentColor" />
+  </svg>
+);
+
+const IconInstagram = (props) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
       stroke="currentColor"
       strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+    />
+    <path
+      d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <path d="M17.5 6.5h.01" stroke="currentColor" strokeWidth="3" />
+  </svg>
+);
+
+const IconYouTube = (props) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.5 12 4.5 12 4.5s-5.7 0-7.5.6a3 3 0 0 0-2.1 2.1A31.6 31.6 0 0 0 2 12a31.6 31.6 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.6 7.5.6 7.5.6s5.7 0 7.5-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 22 12a31.6 31.6 0 0 0-.4-4.8Z"
+      fill="currentColor"
+      opacity="0.9"
+    />
+    <path d="M10 15.5v-7l6 3.5-6 3.5Z" fill="#000" />
+  </svg>
+);
+
+const IconFacebook = (props) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M14 8h2V5h-2a4 4 0 0 0-4 4v3H8v3h2v7h3v-7h2.2l.8-3H13V9a1 1 0 0 1 1-1Z"
+      fill="currentColor"
     />
   </svg>
 );
 
-const Social = ({ children, href }) => (
+const Social = ({ children, href, ...props }) => (
   <a
     href={href}
-    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/[0.02] text-white/80 hover:border-[#008745]/50 hover:text-white"
+    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/85 bg-white/[0.02] text-white/80 hover:border-[#008745]/50 hover:text-white"
+    {...props}
   >
     {children}
   </a>
 );
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <footer className="relative w-full overflow-hidden text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,135,69,0.22)_0%,_rgba(0,0,0,0.95)_55%,_rgba(0,0,0,1)_100%)]" />
-
-      <div className="relative mx-auto  px-6 py-8">
+    <footer className="relative w-full max-w-[1430px] m-auto overflow-hidden text-white">
+      <div className="relative mx-auto  px-6 py-8 border-t border-[#FFFFFF17]">
         <div className="grid gap-8 md:grid-cols-3 md:items-start">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Petpooja Tasks" className="h-10 w-auto" />
           </div>
 
           <div className="text-center">
-            <div className="text-xs text-white/70">Connect with us:</div>
-            <div className="mt-2 flex flex-col items-center justify-center gap-2 text-xs text-white/80 sm:flex-row">
+            <div className="text-[16px] text-white">Connect with us:</div>
+            <div className="mt-2 flex flex-col items-center justify-center gap-2 text-[16px]  text-white sm:flex-row">
               <a
                 href="tel:+916358916474"
                 className="inline-flex items-center gap-2 hover:text-white"
               >
-                <IconPhone className="text-[#008745]" />
+                <IconPhone className="text-white size-4" />
                 +91 63589 16474
               </a>
               <span className="hidden text-white/30 sm:inline">|</span>
@@ -129,34 +180,34 @@ const Footer = () => {
                 href="mailto:gettasks@petpooja.com"
                 className="inline-flex items-center gap-2 hover:text-white"
               >
-                <IconMail className="text-[#008745]" />
+                <IconMail className="text-white size-4" />
                 gettasks@petpooja.com
               </a>
             </div>
 
             <div className="mt-4 flex items-center justify-center gap-3">
               <Social href="#" aria-label="LinkedIn">
-                <span className="text-xs font-semibold">in</span>
+                <IconLinkedIn className="text-white size-4" />
               </Social>
               <Social href="#" aria-label="Instagram">
-                <span className="text-xs font-semibold">ig</span>
+                <IconInstagram className="text-white size-4" />
               </Social>
               <Social href="#" aria-label="YouTube">
-                <span className="text-xs font-semibold">yt</span>
+                <IconYouTube className="text-white size-4" />
               </Social>
               <Social href="#" aria-label="Facebook">
-                <span className="text-xs font-semibold">f</span>
+                <IconFacebook className="text-white size-4" />
               </Social>
             </div>
           </div>
 
           <div className="text-right text-xs text-white/70">
             <div className="flex items-start justify-end gap-2">
-              <IconPin className="mt-0.5 shrink-0 text-[#008745]" />
-              <div>
-                <div>3rd Floor, Tower-A, Gopal Palace,</div>
-                <div>NehruNagar, Ambawadi,</div>
-                <div>Ahmedabad, Gujarat - 380015</div>
+              <IconPin className="mt-0.5 shrink-0 text-white size-4" />
+              <div className="text-[16px] text-white">
+                <h6>3rd Floor, Tower-A, Gopal Palace,</h6>
+                <h6>NehruNagar, Ambawadi,</h6>
+                <h6>Ahmedabad, Gujarat - 380015</h6>
               </div>
             </div>
           </div>
@@ -164,20 +215,11 @@ const Footer = () => {
 
         <div className="mt-6 h-px w-full bg-[#008745]/25" />
 
-        <div className="mt-4 text-center text-[10px] text-white/55">
+        <div className="mt-4 text-center text-[14px] text-white">
           © 2026 - Prayosho Food Services Pvt. Ltd., India · Privacy ·
           Compliance · Terms · Cancellation &amp; Refund · Escalation Matrix
         </div>
       </div>
-
-      {/* <button
-        type="button"
-        onClick={scrollToTop}
-        className="absolute right-6 top-1/2 -translate-y-1/2 rounded-md border border-white/10 bg-white/[0.06] p-2 text-white/80 hover:border-[#008745]/50 hover:text-white"
-        aria-label="Back to top"
-      >
-        <IconUp />
-      </button> */}
     </footer>
   );
 };
