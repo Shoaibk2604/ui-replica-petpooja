@@ -1,107 +1,90 @@
 import React from "react";
+import collaborationImg1 from "../../assets/download (1).png";
+import collaborationImg2 from "../../assets/download (2).png";
+import collaborationImg3 from "../../assets/download (3).png";
+import collaborationImg4 from "../../assets/download (4).png";
+import collaborationImg6 from "../../assets/download (6).png";
 
 const CollaborationSection = () => {
+  const items = [
+    {
+      id: 0,
+      image: collaborationImg1,
+      title: "Manage complicated projects easily",
+      description:
+        "Manage projects and tasks easily from one place. Identify delays, view workloads, and see where your attention is needed everything from one screen. Keep everyone aligned.",
+    },
+    {
+      id: 1,
+      image: collaborationImg2,
+      title: "Start new projects in minutes",
+      description:
+        "Use pre-built templates to skip repetitive project assignments. Choose from 150+ ready-to-use templates to instantly launch projects and start executing.",
+    },
+    {
+      id: 2,
+      image: collaborationImg3,
+      title: "Send automatic reminders to teams",
+      description:
+        "Never ask for follow-ups again. Automatically send reminders for new tasks, delays, and completions via WhatsApp and in-app notifications, so deadlines are never missed.",
+    },
+    {
+      id: 3,
+      image: collaborationImg4,
+      title: "Easily assign location based tasks",
+      description:
+        "Assign tasks to field teams for specific locations using smart geofencing. Ensure every task is completed at the right place and the right time. Control where teams can log in from.",
+    },
+    {
+      id: 4,
+      image: collaborationImg6,
+      title: "Work easily with cross teams",
+      description:
+        "Create dependent and group tasks with cross teams easily. Add multiple members in a task. Let everyone know who's waiting on what. Seamless coordination.",
+    },
+    {
+      id: 5,
+      image: collaborationImg1,
+      title: "Let AI check the work for you",
+      description:
+        "Skip spending hours on manual proof checks. Upload an image and let AI instantly verify the task. It flags errors and automatically confirms when a task is completed.",
+    },
+  ];
+
   return (
-    <section className="w-full overflow-hidden text-white">
+    <section className="w-full max-w-[1440px] mx-auto  overflow-hidden text-white">
       <div className="relative">
-        <div className="relative mx-auto max-w-[1120px] px-4 pb-20">
-          <h2 className="mx-auto max-w-4xl text-center text-4xl font-semibold leading-tight sm:text-5xl sm:leading-tight md:text-6xl">
+        <div className="relative mx-auto  px-4 pb-20">
+          <h2 className="mx-auto   text-center text-4xl font-semibold leading-tight tracking-[0.02em] sm:text-5xl sm:leading-tight md:text-[65px]">
             Everything You Need For
             <br />
             Clarity, Control, &amp; Collaboration
           </h2>
 
-          <div className="mt-16 grid items-center gap-12 md:grid-cols-2">
-            <div className="relative mx-auto w-full max-w-[520px]">
-              <div className="absolute -inset-8 rounded-[32px] bg-[#008745]/20 blur-3xl" />
-
-              <div className="relative">
-                <div className="absolute left-0 top-6 h-[240px] w-[320px] rounded-2xl bg-gradient-to-b from-[#0e2a1e] to-[#0a1410] shadow-[0_20px_70px_rgba(0,0,0,0.6)]" />
-
-                <div className="relative inline-block rounded-xl border border-white/10 bg-black/25 p-4 shadow-[0_15px_60px_rgba(0,0,0,0.55)]">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-lg bg-white/5 px-3 py-2">
-                      <div className="text-[10px] font-semibold text-white/70">
-                        Task Name
-                      </div>
-                      <div className="mt-2 h-2 w-24 rounded bg-white/10" />
-                    </div>
-                    <div className="rounded-lg bg-white/5 px-3 py-2">
-                      <div className="text-[10px] font-semibold text-white/70">
-                        Entity
-                      </div>
-                      <div className="mt-2 h-2 w-20 rounded bg-white/10" />
-                    </div>
-                    <div className="rounded-lg bg-white/5 px-3 py-2">
-                      <div className="text-[11px] text-white/80">
-                        Chair Production
-                      </div>
-                    </div>
-                    <div className="rounded-lg bg-white/5 px-3 py-2">
-                      <div className="text-[11px] text-white/80">
-                        Batch Production
-                      </div>
-                    </div>
-                    <div className="rounded-lg bg-white/5 px-3 py-2">
-                      <div className="text-[11px] text-white/80">
-                        AC maintenance
-                      </div>
-                    </div>
-                    <div className="rounded-lg bg-white/5 px-3 py-2">
-                      <div className="text-[11px] text-white/80">Assets</div>
-                    </div>
-                  </div>
+          <div className="mt-16 grid ">
+            {items.map((item, idx) => (
+              <div
+                key={item.id}
+                className={`grid items-center md:grid-cols-[40%_60%] ${idx !== 0 ? "mt-[128px]" : ""}`}
+              >
+                <div className="relative mx-auto w-full max-w-[620px]">
+                  <img
+                    src={item.image}
+                    alt="Collaboration"
+                    className="h-auto w-full max-w-full object-contain md:max-h-none max-h-[420px]"
+                  />
                 </div>
 
-                <div className="relative -mt-10 ml-16 w-[360px] max-w-full rounded-xl border border-white/10 bg-black/30 p-4 shadow-[0_20px_70px_rgba(0,0,0,0.55)]">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-[10px] font-semibold text-white/60">
-                      Assigned to
-                    </div>
-                    <div className="text-[10px] font-semibold text-white/60">
-                      Status
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#008745] text-[10px] font-bold text-white">
-                        D
-                      </div>
-                      <div className="text-[11px] text-white/80">
-                        Dharmik Patel
-                      </div>
-                    </div>
-                    <div className="inline-flex h-6 items-center justify-center rounded-md bg-[#143c2b] px-2 text-[10px] font-semibold text-white/70">
-                      In Review
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#3d2e7a] text-[10px] font-bold text-white">
-                        P
-                      </div>
-                      <div className="text-[11px] text-white/80">
-                        Priya Sharma
-                      </div>
-                    </div>
-                    <div className="inline-flex h-6 items-center justify-center rounded-md bg-[#3a2a12] px-2 text-[10px] font-semibold text-[#f5b64a]">
-                      Ongoing
-                    </div>
-                  </div>
+                <div className="mx-auto w-full max-w-[760px] text-center md:text-left">
+                  <h3 className="text-white mb-4 text-[42px] font-medium">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#D0D1D2] text-[22px] leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </div>
-            </div>
-
-            <div className="mx-auto w-full max-w-[520px] text-center md:text-left">
-              <h3 className="text-3xl font-semibold leading-tight sm:text-4xl">
-                Manage complicated
-                <br />
-                projects easily
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-white/55">
-                Manage projects and tasks easily from one place. Identify
-                delays, view workloads, and see where your attention is
-                neededeverything from one screen. Keep everyone aligned.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
