@@ -29,8 +29,8 @@ const IndustrySection = () => {
       <div className="relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,135,69,0.20)_0%,_rgba(0,0,0,0.92)_55%,_rgba(0,0,0,1)_100%)]" />
 
-        <div className="relative mx-auto max-w-[1120px] px-4 py-20 text-center">
-          <h2 className="text-4xl font-semibold sm:text-5xl md:text-6xl">
+        <div className="relative mx-auto max-w-[1420px] px-4 py-20 text-center">
+          <h2 className="text-4xl font-semibold sm:text-5xl md:text-[65px]">
             Built for Every Team
             <br />
             Every Industry
@@ -38,23 +38,25 @@ const IndustrySection = () => {
 
           <a
             href="#industries"
-            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#008745]"
+            className="relative cursor-pointer mt-6 inline-flex items-center gap-2 text-[18px] font-medium text-[#008745] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008745] after:transition-transform after:duration-300 hover:after:scale-x-100"
           >
             Show All
-            <span aria-hidden>{"›"}</span>
+            <span aria-hidden={true} className="text-[20px]">
+              {"›"}
+            </span>
           </a>
 
           <div className="mt-14 grid grid-cols-2 gap-y-12 sm:grid-cols-3 md:grid-cols-5">
             {items.map((it) => (
               <div key={it.label} className="flex flex-col items-center">
-                <div className="flex h-12 w-12 items-center justify-center">
+                <div className="flex h-16 w-16 items-center justify-center">
                   {it.icon ? (
-                    <img src={it.icon} alt="" className="h-10 w-10" />
+                    <img src={it.icon} alt="" className="h-full w-full" />
                   ) : (
                     <div className="h-10 w-10 rounded bg-white/5" />
                   )}
                 </div>
-                <div className="mt-3 text-xs font-medium text-white/85">
+                <div className="text-white text-base sm:text-lg">
                   {it.label}
                 </div>
               </div>
