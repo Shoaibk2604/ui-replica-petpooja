@@ -53,11 +53,11 @@ const ProductivitySection = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden text-white productivity-stats relative pb-[140px]"
+      className="w-full overflow-hidden text-white productivity-stats relative md:pb-[140px] pb-[40px]"
     >
       <div className="relative">
         <div className="relative mx-auto max-w-[1120px] px-4 pb-16">
-          <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-6xl mb-[140px]">
+          <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-6xl md:mb-[140px] mb-[64px]">
             Powering Daily Productivity
           </h2>
 

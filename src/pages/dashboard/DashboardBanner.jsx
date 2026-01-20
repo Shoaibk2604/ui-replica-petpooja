@@ -5,13 +5,13 @@ const DashboardBanner = () => {
     <section className="w-full overflow-hidden  text-white">
       <div className="relative">
         <div className="relative mx-auto flex max-w-[1420px] flex-col items-center px-4 pb-16 pt-14 text-center sm:pt-16 md:pt-[122px]">
-          <h1 className="max-w-6xl text-[72px] leading-[1.25] mb-4 sm:mb-6 font-medium sm:font-semibold text-center tracking-[2px]">
+          <h1 className="max-w-6xl text-[42px] sm:text-[48px] md:text-[72px] leading-[1.25] mb-4 sm:mb-6 font-medium sm:font-semibold text-center tracking-[2px]">
             Get Work Done
             <br />
             On Time. Every Time.
           </h1>
 
-          <p className="mb-6 max-w-6xl text-[24px] leading-[1.5] text-white/50 text-center ">
+          <p className="mb-6 max-w-6xl text-[15px] sm:text-[18px] md:text-[24px] leading-[1.5] text-white/50 text-center ">
             Manage all your tasks and projects from one screen. Send automatic
             reminders,
             <br /> schedule tasks, assign routine work, use AI for quick
@@ -21,17 +21,17 @@ const DashboardBanner = () => {
 
           <a
             href="#get-started"
-            className="dashboard-cta-bounce inline-flex items-center justify-center rounded-md bg-[#008745] px-5 py-2.5 text-[16px] font-semibold text-white transition-colors hover:bg-[#006d38]"
+            className="dashboard-cta-bounce inline-flex items-center justify-center rounded-md bg-[#008745] px-5 py-2.5 text-[14px] md:text-[16px] font-semibold text-white transition-colors hover:bg-[#006d38]"
           >
             Get a 7 Day FREE Trial
           </a>
 
-          <div className="text-[#FFFFFF] opacity-50 feature-p leading-[1.25] my-6 text-center">
+          <p className="text-[#FFFFFF] text-[13.5px] sm:text-[18px] md:text-[24px] opacity-50 feature-p leading-[1.25] my-6 text-center">
             Spend less time managing, and more time growing
-          </div>
+          </p>
 
           <div className="mt-10 w-full max-w-5xl">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/20 shadow-[0_25px_80px_rgba(0,0,0,0.6)]">
+            <div className="overflow-hidden rounded-2xl  ">
               <img
                 src={dashboardBanner}
                 alt="Dashboard preview"

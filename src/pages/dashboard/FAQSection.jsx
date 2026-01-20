@@ -57,7 +57,7 @@ const FAQSection = () => {
       <div className="relative">
         {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,135,69,0.20)_0%,_rgba(0,0,0,0.92)_55%,_rgba(0,0,0,1)_100%)]" /> */}
 
-        <div className="relative mx-auto max-w-[1280px] px-4 py-20">
+        <div className="relative mx-auto max-w-[1280px] px-4 md:py-20 py-10 pt-0">
           <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-[65px]">
             FAQs
           </h2>
@@ -82,11 +82,11 @@ const FAQSection = () => {
                     >
                       <div className="flex justify-between">
                         <div className="min-w-0 ">
-                          <div className="text-[20px] font-semibold text-white">
+                          <div className="md:text-[20px] text-[16px] font-semibold text-white">
                             {item.q}
                           </div>
                           <div
-                            className={`overflow-hidden text-[18px] leading-6 text-white/65 transition-[max-height,opacity] duration-300 ${
+                            className={`overflow-hidden md:text-[18px] text-[14px] leading-6 text-white/65 transition-[max-height,opacity] duration-300 ${
                               open
                                 ? "max-h-[320px] opacity-100 mt-3"
                                 : "max-h-0 opacity-0 mt-0"

@@ -27,17 +27,21 @@ const WhyChooseUsSection = () => {
               Choose Us
             </h2>
             <div className="background-substract">
-              <div className="pt-[220px]">
+              <div className="pb-[120px] sm:pb-[120px] md:pb-0 pt-[120px] sm:pt-[120px] md:pt-[220px]">
                 <div className="relative grid gap-12 md:grid-cols-3 m-auto">
                   {items.map((it) => (
                     <div
                       key={it.title}
                       className="flex flex-col items-center text-center"
                     >
-                      <div className="flex h-36 w-36 items-center justify-center ">
-                        <img src={it.icon} alt="" className="h-36 w-36" />
+                      <div className="flex h-24 w-24 md:h-36 md:w-36 items-center justify-center ">
+                        <img
+                          src={it.icon}
+                          alt=""
+                          className="h-24 w-24md:h-36 md:w-36"
+                        />
                       </div>
-                      <div className="mt-6 text-[24px] font-semibold text-white/90">
+                      <div className="mt-6 md:text-[24px] text-[18px] font-semibold text-white/90">
                         {it?.title?.split("\n").map((line, idx) => (
                           <div key={idx}>{line}</div>
                         ))}

@@ -161,6 +161,61 @@ body {
   .productivity-glow {
     width: 420px;
   }
+  .productivity-stats .productivity-outline-number-left{
+  opacity: 1;
+  transform: translateX(0px) translateY(0px);;
+}
+
+.productivity-stats .productivity-outline-number-right{
+  opacity: 1;
+  transform: translateX(0px) translateY(0px);
+}
+.productivity-stats .productivity-line-right {
+  opacity: 0;
+  display: none;
+}
+.productivity-stats .productivity-line-left {
+  opacity: 0;
+  display: none;
+}
+.productivity-stats .productivity-glow {
+  opacity: 0;
+}
+
+  .productivity-stats:hover .productivity-outline-number-left{
+  opacity: 1;
+  transform: translateX(0px) translateY(0px);;
+}
+
+.productivity-stats:hover .productivity-outline-number-right{
+  opacity: 1;
+  transform: translateX(0px) translateY(0px);
+}
+.productivity-stats:hover .productivity-line-right {
+  opacity: 0;
+  display: none;
+}
+.productivity-stats:hover .productivity-line-left {
+  opacity: 0;
+  display: none;
+}
+.productivity-stats:hover .productivity-glow {
+  opacity: 0;
+}
+
+.productivity-stats:hover .productivity-card {
+  transform: translateY(0px) rotate(0deg);
+}
+.background-substract{
+  background-image: url('./assets/Subtract_mob.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 540px ;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+}
 }
 
 

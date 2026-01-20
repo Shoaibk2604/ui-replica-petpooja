@@ -160,14 +160,14 @@ const Footer = () => {
   return (
     <footer className="relative w-full max-w-[1430px] m-auto overflow-hidden text-white">
       <div className="relative mx-auto  px-6 py-8 border-t border-[#FFFFFF17]">
-        <div className="grid gap-8 md:grid-cols-3 md:items-start">
-          <div className="flex items-center gap-3">
+        <div className="grid gap-8 md:grid-cols-3 md:items-start md:justify-start sm:justify-center justify-center">
+          <div className="flex items-center md:justify-start sm:justify-center justify-center gap-3">
             <img src={logo} alt="Petpooja Tasks" className="h-10 w-auto" />
           </div>
 
-          <div className="text-center">
+          <div className="text-center order-2 md:order-none">
             <div className="text-[16px] text-white">Connect with us:</div>
-            <div className="mt-2 flex flex-col items-center justify-center gap-2 text-[16px]  text-white sm:flex-row">
+            <div className="mt-2 flex flex-row   items-center justify-center md:gap-2 gap-6 text-[16px]  text-white sm:flex-row">
               <a
                 href="tel:+916358916474"
                 className="inline-flex items-center gap-2 hover:text-white"
@@ -185,7 +185,7 @@ const Footer = () => {
               </a>
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-3">
+            <div className="mt-4 hidden items-center justify-center gap-3 md:flex">
               <Social href="#" aria-label="LinkedIn">
                 <IconLinkedIn className="text-white size-4" />
               </Social>
@@ -201,23 +201,44 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="text-right text-xs text-white/70">
-            <div className="flex items-start justify-end gap-2">
+          <div className="text-center md:text-right text-xs text-white/70 order-3 md:order-none">
+            <div className="flex items-start justify-center md:justify-end gap-2">
               <IconPin className="mt-0.5 shrink-0 text-white size-4" />
               <div className="text-[16px] text-white">
-                <h6>3rd Floor, Tower-A, Gopal Palace,</h6>
-                <h6>NehruNagar, Ambawadi,</h6>
-                <h6>Ahmedabad, Gujarat - 380015</h6>
+                <div className="md:hidden">
+                  3rd Floor, Tower-A, Gopal Palace, NehruNagar, Ambawadi,
+                  Ahmedabad, Gujarat - 380015
+                </div>
+                <div className="hidden md:block">
+                  <h6>3rd Floor, Tower-A, Gopal Palace,</h6>
+                  <h6>NehruNagar, Ambawadi,</h6>
+                  <h6>Ahmedabad, Gujarat - 380015</h6>
+                </div>
               </div>
             </div>
+          </div>
+
+          <div className="mt-2 flex items-center justify-center gap-3 md:hidden order-4">
+            <Social href="#" aria-label="LinkedIn">
+              <IconLinkedIn className="text-white size-4" />
+            </Social>
+            <Social href="#" aria-label="Instagram">
+              <IconInstagram className="text-white size-4" />
+            </Social>
+            <Social href="#" aria-label="YouTube">
+              <IconYouTube className="text-white size-4" />
+            </Social>
+            <Social href="#" aria-label="Facebook">
+              <IconFacebook className="text-white size-4" />
+            </Social>
           </div>
         </div>
 
         <div className="mt-6 h-px w-full bg-[#008745]/25" />
 
         <div className="mt-4 text-center text-[14px] text-white">
-          © 2026 - Prayosho Food Services Pvt. Ltd., India · Privacy ·
-          Compliance · Terms · Cancellation &amp; Refund · Escalation Matrix
+          2026 - Prayosho Food Services Pvt. Ltd., India · Privacy · Compliance
+          · Terms · Cancellation &amp; Refund · Escalation Matrix
         </div>
       </div>
     </footer>

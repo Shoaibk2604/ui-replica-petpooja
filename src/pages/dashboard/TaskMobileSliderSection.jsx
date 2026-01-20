@@ -57,7 +57,7 @@ const TaskMobileSliderSection = () => {
       <div className="relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,135,69,0.40)_0%,_rgba(0,0,0,0.92)_55%,_rgba(0,0,0,1)_100%)]" />
 
-        <div className="relative w-full py-20 text-center">
+        <div className="relative w-full pb-20 text-center">
           <div className="mx-auto  px-4">
             <h2 className="text-4xl font-semibold sm:text-5xl md:text-6xl">
               Access Projects From

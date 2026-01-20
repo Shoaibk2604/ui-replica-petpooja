@@ -35,21 +35,21 @@ function App() {
         style={{ opacity: bgOpacity }}
       >
         <div
-          className="absolute -left-40 top-28 h-[920px] w-[920px] blur-3xl"
+          className="absolute -left-40 top-128 h-[500px] w-[500px] md:h-[960px] md:w-[960px] blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(0,135,69,0.55) 0%, rgba(0,135,69,0) 62%)",
           }}
         />
         <div
-          className="absolute left-1/2 top-[-260px] h-[960px] w-[960px] -translate-x-1/2 blur-3xl"
+          className="absolute left-1/2 top-[10px] h-[500px] w-[500px] md:h-[960px] md:w-[960px] -translate-x-1/2 blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(0,135,69,0.50) 0%, rgba(0,135,69,0) 64%)",
           }}
         />
         <div
-          className="absolute -right-40 top-36 h-[940px] w-[940px] blur-3xl"
+          className="absolute -right-40 top-128 h-[500px] w-[500px] md:h-[960px] md:w-[960px] blur-3xl"
           style={{
             background:
               "radial-gradient(circle, rgba(0,135,69,0.55) 0%, rgba(0,135,69,0) 62%)",

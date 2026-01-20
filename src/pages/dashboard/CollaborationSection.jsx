@@ -1,4 +1,3 @@
-import React from "react";
 import collaborationImg1 from "../../assets/download (1).png";
 import collaborationImg2 from "../../assets/download (2).png";
 import collaborationImg3 from "../../assets/download (3).png";
@@ -55,7 +54,7 @@ const CollaborationSection = () => {
     <section className="w-full max-w-[1440px] mx-auto  overflow-hidden text-white">
       <div className="relative">
         <div className="relative mx-auto  px-4 pb-20">
-          <h2 className="mx-auto   text-center text-4xl font-semibold leading-tight tracking-[0.02em] sm:text-5xl sm:leading-tight md:text-[65px]">
+          <h2 className="mx-auto   text-center text-[34px]  font-semibold leading-tight tracking-[0.02em] sm:text-5xl sm:leading-tight md:text-[65px]">
             Everything You Need For
             <br />
             Clarity, Control, &amp; Collaboration
@@ -75,11 +74,11 @@ const CollaborationSection = () => {
                   />
                 </div>
 
-                <div className="mx-auto w-full max-w-[760px] text-center md:text-left">
-                  <h3 className="text-white mb-4 text-[42px] font-medium">
+                <div className="mx-auto w-full max-w-[760px] text-left md:text-left">
+                  <h3 className="text-white mb-4 md:text-[42px] text-[20px] font-medium">
                     {item.title}
                   </h3>
-                  <p className="text-[#D0D1D2] text-[22px] leading-relaxed">
+                  <p className="text-[#D0D1D2] md:text-[22px] text-[14px] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
