@@ -10,43 +10,47 @@ const LifeEasySection = () => {
   return (
     <section className="w-full overflow-hidden text-white">
       <div className="relative">
-        <div className="relative mx-auto max-w-[1120px] px-4 py-20">
-          <h2 className="text-center text-4xl font-semibold sm:text-5xl md:text-6xl">
+        <div className="relative mx-auto max-w-[1320px] px-4 py-20">
+          <h2 className="text-white text-center mb-10 md:mb-20 leading-[1.25] text-[65px] font-medium sm:font-semibold">
             How We Make Your Life Easy
           </h2>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/25 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)]">
+          <div className="mt-14 grid gap-0  md:grid-cols-[65%_35%]">
+            <div className="relative overflow-hidden border-y-[0.92px] md:border-l-[0.92px] border-[#00874533] p-8 ">
               <div className="pointer-events-none absolute -left-16 -top-16 h-64 w-64 rounded-full bg-[#008745]/20 blur-3xl" />
               <div className="relative">
-                <div className="text-xl font-semibold sm:text-2xl">
-                  Provide clear project briefs
+                <div className="mb-12">
+                  <h6 className="text-[30px] font-semibold sm:text-2xl mb-6">
+                    Provide clear project briefs
+                  </h6>
+                  <p className="text-white/70 feature-p leading-[1.25] text-center text-[17px] md:text-left max-w-[430px]">
+                    Attach files, SOPs, and visuals right when assigning — so
+                    your team always knows exactly what{"'"}s needed.
+                  </p>
                 </div>
-                <p className="mt-3 max-w-md text-sm leading-6 text-white/55">
-                  Attach files, SOPs, and visuals right when assigning — so your
-                  team always knows exactly what{"'"}s needed.
-                </p>
-                <img
-                  src={card1}
-                  alt="Project details card"
-                  className="mt-8 h-auto w-full max-w-[360px]"
-                />
+                <div className="flex justify-center">
+                  <img
+                    src={card1}
+                    alt="Project details card"
+                    className="mt-8 h-auto w-full max-w-[360px]"
+                  />
+                </div>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/25 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)]">
+            <div className="relative overflow-hidden border  border-[#00874533] border-r-0 bg-black/25 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)]">
               <div className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#008745]/18 blur-3xl" />
               <div className="relative flex h-full flex-col justify-between">
                 <img
                   src={card2}
                   alt="Centralised management graphic"
-                  className="ml-auto h-auto w-full max-w-[280px]"
+                  className="w-full h-full object-contain mx-auto gm-lazy gm-loaded gm-observing gm-observing-cb"
                 />
                 <div className="mt-10">
-                  <div className="text-xl font-semibold sm:text-2xl">
+                  <h6 className="text-[30px] font-semibold sm:text-2xl mb-6">
                     Centralise project &amp; task management
-                  </div>
-                  <p className="mt-3 max-w-md text-sm leading-6 text-white/55">
+                  </h6>
+                  <p className="text-white/70 feature-p leading-[1.25] text-center text-[17px] md:text-left max-w-[430px]">
                     Manage everything from one centralised dashboard — schedule
                     tasks, assign owners, automate repeated tasks and track
                     progress easily.
@@ -54,53 +58,59 @@ const LifeEasySection = () => {
                 </div>
               </div>
             </div>
-
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/25 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)]">
+          </div>
+          <div className="grid gap-0  md:grid-cols-[35%_65%]">
+            <div className="relative overflow-hidden  border border-[#00874533] border-l-0 bg-black/25 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)]">
               <div className="pointer-events-none absolute -left-16 -bottom-16 h-64 w-64 rounded-full bg-[#008745]/18 blur-3xl" />
               <div className="relative">
-                <div className="text-xl font-semibold sm:text-2xl">
-                  Work in your preferred language
+                <div>
+                  <h6 className="text-[30px] font-semibold sm:text-2xl mb-6">
+                    Work in your preferred language
+                  </h6>
+                  <p className="text-white/70 feature-p leading-[1.25] text-center text-[17px] md:text-left max-w-[430px]">
+                    Assign work in the language your team understands. Select
+                    from seven languages, which include Hindi, English,
+                    Malayalam, Telugu, Tamil, and Gujarati.
+                  </p>
                 </div>
-                <p className="mt-3 max-w-md text-sm leading-6 text-white/55">
-                  Assign work in the language your team understands. Select from
-                  seven languages, which include Hindi, English, Malayalam,
-                  Telugu, Tamil, and Gujarati.
-                </p>
                 <img
                   src={card3}
                   alt="Languages card"
-                  className="mt-8 h-auto w-full max-w-[420px]"
+                  className="w-full h-full object-contain mx-auto gm-lazy gm-loaded gm-observing gm-observing-cb"
                 />
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/25 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)]">
+            <div className="relative overflow-hidden border border-[#00874533] border-r-0 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)]">
               <div className="pointer-events-none absolute -right-16 -bottom-16 h-64 w-64 rounded-full bg-[#008745]/18 blur-3xl" />
               <div className="relative">
-                <div className="text-xl font-semibold sm:text-2xl">
-                  Use Geofencing & Geotagging
-                </div>
-                <p className="mt-3 max-w-md text-sm leading-6 text-white/55">
-                  Create virtual boundaries around real-world locations to
-                  ensure tasks are completed in the right place and at the right
-                  time.
-                </p>
                 <img
                   src={card4}
                   alt="Assign work card"
-                  className="mt-8 h-auto w-full max-w-[420px]"
+                  className="w-full h-full object-contain mx-auto gm-lazy gm-loaded gm-observing gm-observing-cb"
                 />
+                <div>
+                  <h6 className="text-[30px] font-semibold sm:text-2xl mb-6">
+                    Use Geofencing & Geotagging
+                  </h6>
+                  <p className="text-white/70 feature-p leading-[1.25] text-center text-[17px] md:text-left max-w-[430px]">
+                    Create virtual boundaries around real-world locations to
+                    ensure tasks are completed in the right place and at the
+                    right time.
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/25 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)] md:col-span-2">
+          </div>
+          <div className="grid gap-0  md:grid-cols-1">
+            <div className="relative overflow-hidden border border-[#00874533] border-x-0 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.55)] md:col-span-2">
               <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#008745]/18 blur-3xl" />
               <div className="relative grid gap-8 md:grid-cols-5 md:items-center">
                 <div className="md:col-span-3">
-                  <div className="text-xl font-semibold sm:text-2xl">
+                  <h6 className="text-[30px] font-semibold sm:text-2xl mb-6">
                     Get Customised Summary Reports
-                  </div>
-                  <p className="mt-3 max-w-2xl text-sm leading-6 text-white/55">
+                  </h6>
+                  <p className="text-white/70 feature-p leading-[1.25] text-center text-[17px] md:text-left max-w-[630px]">
                     Access multiple reports on key metrics, including
                     month-on-month reviews, user-wise reports, employee- and
                     task-wise reports, individual and group task reports, and
