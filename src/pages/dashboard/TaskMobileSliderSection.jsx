@@ -13,6 +13,18 @@ const TaskMobileSliderSection = () => {
   const swiperRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showDragHint, setShowDragHint] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragHintTimeoutRef = useRef(null);
+  const dragHintRef = useRef(null);
+  const dragAreaRef = useRef(null);
+  const dragRafRef = useRef(null);
+  const dragPosRef = useRef({ x: 0, y: 0 });
+  const dragTargetRef = useRef({ x: 0, y: 0 });
+  const dragCurrentRef = useRef({ x: 0, y: 0 });
+  const dragVelocityRef = useRef({ x: 0, y: 0 });
+  const isHoveringRef = useRef(false);
+  const isDraggingRef = useRef(false);
 
   const handleProgress = (swiper) => {
     swiper.slides.forEach((slideEl) => {
@@ -40,6 +52,94 @@ const TaskMobileSliderSection = () => {
       if (!inner) return;
       inner.style.transitionDuration = `${duration}ms`;
     });
+  };
+
+  const showDragHintTemporarily = (ms = 1200) => {
+    if (dragHintTimeoutRef.current)
+      window.clearTimeout(dragHintTimeoutRef.current);
+    setShowDragHint(true);
+    dragHintTimeoutRef.current = window.setTimeout(() => {
+      if (isHoveringRef.current || isDraggingRef.current) return;
+      setShowDragHint(false);
+    }, ms);
+  };
+
+  const getDragTargetPosition = () => {
+    const area = dragAreaRef.current;
+    const size = 60;
+    const offset = 30;
+
+    let x = dragPosRef.current.x + offset;
+    let y = dragPosRef.current.y + offset;
+
+    if (area) {
+      x = Math.max(size / 2, Math.min(area.clientWidth - size / 2, x));
+      y = Math.max(size / 2, Math.min(area.clientHeight - size / 2, y));
+    }
+
+    return { x, y };
+  };
+
+  const updateDragHintPosition = (pos) => {
+    const el = dragHintRef.current;
+    if (!el) return;
+    el.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) translate(-50%, -50%)`;
+  };
+
+  const startDragFollow = () => {
+    if (dragRafRef.current) return;
+
+    dragTargetRef.current = getDragTargetPosition();
+    dragCurrentRef.current = { ...dragTargetRef.current };
+    dragVelocityRef.current = { x: 0, y: 0 };
+    updateDragHintPosition(dragCurrentRef.current);
+
+    const tick = () => {
+      const stiffness = 0.18;
+      const damping = 0.78;
+
+      const t = dragTargetRef.current;
+      const c = dragCurrentRef.current;
+      const v = dragVelocityRef.current;
+
+      v.x = (v.x + (t.x - c.x) * stiffness) * damping;
+      v.y = (v.y + (t.y - c.y) * stiffness) * damping;
+
+      c.x += v.x;
+      c.y += v.y;
+
+      dragCurrentRef.current = c;
+      dragVelocityRef.current = v;
+      updateDragHintPosition(c);
+
+      if (!isHoveringRef.current && !isDraggingRef.current) {
+        dragRafRef.current = null;
+        return;
+      }
+
+      dragRafRef.current = window.requestAnimationFrame(tick);
+    };
+
+    dragRafRef.current = window.requestAnimationFrame(tick);
+  };
+
+  const stopDragFollow = () => {
+    if (!dragRafRef.current) return;
+    window.cancelAnimationFrame(dragRafRef.current);
+    dragRafRef.current = null;
+  };
+
+  const onMouseMoveDragArea = (e) => {
+    const area = dragAreaRef.current;
+    if (!area) return;
+    const rect = area.getBoundingClientRect();
+    dragPosRef.current = {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    };
+
+    dragTargetRef.current = getDragTargetPosition();
+    startDragFollow();
   };
 
   const slides = useMemo(
@@ -72,6 +172,14 @@ const TaskMobileSliderSection = () => {
   }, []);
 
   useEffect(() => {
+    return () => {
+      if (dragHintTimeoutRef.current)
+        window.clearTimeout(dragHintTimeoutRef.current);
+      if (dragRafRef.current) window.cancelAnimationFrame(dragRafRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
     const swiper = swiperRef.current;
     if (!swiper?.autoplay) return;
 
@@ -99,8 +207,65 @@ const TaskMobileSliderSection = () => {
             </div>
           </div>
 
-          <div className="relative  w-full">
+          <div
+            className="relative w-full"
+            ref={dragAreaRef}
+            onMouseEnter={() => {
+              isHoveringRef.current = true;
+              const area = dragAreaRef.current;
+              if (area) {
+                dragPosRef.current = {
+                  x: area.clientWidth / 2,
+                  y: area.clientHeight / 2,
+                };
+                dragTargetRef.current = getDragTargetPosition();
+                startDragFollow();
+              }
+              setShowDragHint(true);
+            }}
+            onMouseLeave={() => {
+              isHoveringRef.current = false;
+              if (dragHintTimeoutRef.current)
+                window.clearTimeout(dragHintTimeoutRef.current);
+              if (!isDraggingRef.current) setShowDragHint(false);
+              if (!isDraggingRef.current) stopDragFollow();
+            }}
+            onMouseMove={onMouseMoveDragArea}
+            onPointerDown={() => {
+              isDraggingRef.current = true;
+              setIsDragging(true);
+              if (dragHintTimeoutRef.current)
+                window.clearTimeout(dragHintTimeoutRef.current);
+              setShowDragHint(true);
+              startDragFollow();
+            }}
+            onPointerUp={() => {
+              isDraggingRef.current = false;
+              setIsDragging(false);
+              if (!isHoveringRef.current) showDragHintTemporarily(450);
+              if (!isHoveringRef.current) stopDragFollow();
+            }}
+            onPointerCancel={() => {
+              isDraggingRef.current = false;
+              setIsDragging(false);
+              if (!isHoveringRef.current) showDragHintTemporarily(450);
+              if (!isHoveringRef.current) stopDragFollow();
+            }}
+          >
             <div className="pointer-events-none absolute left-1/2 top-1/3 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#008745]/25 blur-3xl" />
+
+            <div
+              ref={dragHintRef}
+              className={`pointer-events-none absolute left-0 top-0 z-20 hidden md:flex items-center justify-center transform-gpu [will-change:transform,opacity] transition-opacity duration-150 ${
+                showDragHint || isDragging ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full border border-white/15 bg-black/65 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+                <span className="text-[12px] font-semibold text-white">
+                  Drag
+                </span>
+              </div>
+            </div>
 
             <Swiper
               modules={[EffectCoverflow, Autoplay]}
@@ -111,6 +276,7 @@ const TaskMobileSliderSection = () => {
               spaceBetween={24}
               speed={800}
               watchSlidesProgress
+              grabCursor
               coverflowEffect={{
                 rotate: 0,
                 stretch: 0,
@@ -120,6 +286,20 @@ const TaskMobileSliderSection = () => {
               }}
               onProgress={handleProgress}
               onSetTransition={handleSetTransition}
+              onSliderFirstMove={() => {
+                isDraggingRef.current = true;
+                setIsDragging(true);
+                if (dragHintTimeoutRef.current)
+                  window.clearTimeout(dragHintTimeoutRef.current);
+                setShowDragHint(true);
+                startDragFollow();
+              }}
+              onTouchEnd={() => {
+                isDraggingRef.current = false;
+                setIsDragging(false);
+                if (!isHoveringRef.current) showDragHintTemporarily(450);
+                if (!isHoveringRef.current) stopDragFollow();
+              }}
               autoplay={{
                 delay: 2200,
                 disableOnInteraction: false,
