@@ -239,7 +239,4 @@ body {
   transform: scale(1);
 }
 
-.task-mobile-swiper .swiper-slide-active img {
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(0, 135, 69, 0.45);
-}
+

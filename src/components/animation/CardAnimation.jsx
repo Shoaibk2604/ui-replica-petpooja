@@ -16,16 +16,43 @@ export default function NotificationScroll() {
     const ctx = gsap.context(() => {
       const entranceTl = gsap.timeline({ paused: true });
 
+      let hasPlayed = false;
+
       entranceTl
         .set(bgRef.current, { y: 120, scale: 0.95 })
-        .set(miniRef.current, { opacity: 1, scale: 1 })
-        .set(mainRef.current, { opacity: 1, scale: 0.95 })
+        .set(miniRef.current, { x: -120, opacity: 0, scale: 0.95 })
+        .set(mainRef.current, { x: 120, opacity: 0, scale: 0.95 })
         .to(bgRef.current, {
           y: 0,
           scale: 1,
           duration: 0.6,
           ease: "power3.out",
         })
+        .to(
+          miniRef.current,
+          { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+          "-=0.25",
+        )
+        .to(miniRef.current, {
+          scale: 1.05,
+          duration: 0.25,
+          ease: "power2.out",
+        })
+        .to(miniRef.current, {
+          scale: 1,
+          duration: 0.35,
+          ease: "elastic.out(1, 0.6)",
+        })
+        .to(
+          mainRef.current,
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.35,
+            ease: "power3.out",
+          },
+          "-=0.25",
+        )
         .to(mainRef.current, {
           scale: 1.1,
           duration: 0.3,
@@ -65,8 +92,17 @@ export default function NotificationScroll() {
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top 75%",
-        onEnter: () => entranceTl.play(0),
-        onEnterBack: () => entranceTl.play(0),
+        onEnter: () => {
+          if (!hasPlayed) {
+            hasPlayed = true;
+            entranceTl.play(0);
+            return;
+          }
+          pulseTl.play();
+        },
+        onEnterBack: () => {
+          if (hasPlayed) pulseTl.play();
+        },
         onLeave: () => {
           entranceTl.pause();
           pulseTl.pause();
@@ -97,7 +133,7 @@ export default function NotificationScroll() {
         <div ref={miniRef} className="absolute left-[-20px] top-6 w-[260px]">
           <div className="relative overflow-hidden rounded-2xl p-[2px]">
             <div className="absolute inset-0 bg-[conic-gradient(from_0deg,rgba(0,135,69,0)_0deg,rgba(0,135,69,1)_60deg,rgba(0,135,69,0)_140deg)] animate-[spin_2.2s_linear_infinite]" />
-            <div className="relative z-10 rounded-2xl bg-zinc-900 px-4 py-3 text-[10px] text-white shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            <div className="relative z-10 rounded-2xl bg-black/70 backdrop-blur-xl px-4 py-3 text-[10px] text-white shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
               <p className="font-medium">Petpooja Task</p>
               <p className="text-zinc-400">Task is marked completed</p>
             </div>
@@ -111,7 +147,7 @@ export default function NotificationScroll() {
         >
           <div className="relative overflow-hidden rounded-2xl p-[2px]">
             <div className="absolute inset-0 bg-[conic-gradient(from_0deg,rgba(0,135,69,0)_0deg,rgba(0,135,69,1)_90deg,rgba(0,135,69,0)_180deg)] animate-[spin_3.2s_linear_infinite]" />
-            <div className="relative z-10 rounded-2xl bg-zinc-900 p-5 text-white shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
+            <div className="relative z-10 rounded-2xl bg-black/70 backdrop-blur-xl p-5 text-white shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
               <div className="mb-3 flex items-center gap-2 text-green-500">
                 <span className="text-[12px] font-semibold">WhatsApp</span>
               </div>

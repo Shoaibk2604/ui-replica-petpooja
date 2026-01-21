@@ -141,7 +141,7 @@ const TaskMobileSliderSection = () => {
                     <img
                       src={s.img}
                       alt="Task mobile screen"
-                      className="mx-auto h-[320px] w-auto rounded-2xl border border-white/10 object-contain shadow-[0_30px_90px_rgba(0,0,0,0.65)] sm:h-[360px] md:h-[520px]"
+                      className="mx-auto h-[320px] w-auto rounded-2xl  object-contain  sm:h-[360px] md:h-[520px]"
                     />
                   </div>
                 </SwiperSlide>
