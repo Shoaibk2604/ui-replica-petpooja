@@ -14,60 +14,67 @@ export default function NotificationScroll() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        paused: true,
-        repeat: -1,
-        repeatDelay: 4,
-      });
+      const entranceTl = gsap.timeline({ paused: true });
 
-      tl.set(bgRef.current, { y: 120, scale: 0.95 })
-        .set(miniRef.current, { x: -120, opacity: 0, scale: 0.9 })
-        .set(mainRef.current, { x: 120, opacity: 0, scale: 0.95 })
+      entranceTl
+        .set(bgRef.current, { y: 120, scale: 0.95 })
+        .set(miniRef.current, { opacity: 1, scale: 1 })
+        .set(mainRef.current, { opacity: 1, scale: 0.95 })
         .to(bgRef.current, {
           y: 0,
           scale: 1,
           duration: 0.6,
           ease: "power3.out",
         })
-        .to(
-          miniRef.current,
-          { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
-          "-=0.25",
-        )
-        .to(miniRef.current, {
-          scale: 1.2,
-          duration: 0.35,
-          ease: "power2.out",
-        })
-        .to(miniRef.current, {
-          scale: 1,
-          duration: 0.55,
-          ease: "elastic.out(1, 0.6)",
-        })
         .to(mainRef.current, {
-          x: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power3.out",
-        })
-        .to(mainRef.current, {
-          scale: 1.2,
-          duration: 0.35,
+          scale: 1.1,
+          duration: 0.3,
           ease: "power2.out",
         })
         .to(mainRef.current, {
           scale: 1,
-          duration: 0.55,
+          duration: 0.35,
           ease: "elastic.out(1, 0.6)",
+        })
+        .call(() => {
+          pulseTl.play();
+        });
+
+      const pulseTl = gsap.timeline({
+        paused: true,
+        repeat: -1,
+        repeatDelay: 0.5,
+      });
+      pulseTl
+        .to(mainRef.current, {
+          scale: 0.95,
+          duration: 0.6,
+          ease: "power2.inOut",
+        })
+        .to(mainRef.current, {
+          scale: 1.05,
+          duration: 0.6,
+          ease: "power2.inOut",
+        })
+        .to(mainRef.current, {
+          scale: 1,
+          duration: 0.4,
+          ease: "power2.out",
         });
 
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top 75%",
-        onEnter: () => tl.play(0),
-        onEnterBack: () => tl.play(),
-        onLeave: () => tl.pause(),
-        onLeaveBack: () => tl.pause(),
+        onEnter: () => entranceTl.play(0),
+        onEnterBack: () => entranceTl.play(0),
+        onLeave: () => {
+          entranceTl.pause();
+          pulseTl.pause();
+        },
+        onLeaveBack: () => {
+          entranceTl.pause();
+          pulseTl.pause();
+        },
       });
     }, sectionRef);
 
