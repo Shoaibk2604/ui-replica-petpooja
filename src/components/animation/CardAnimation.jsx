@@ -18,6 +18,49 @@ export default function NotificationScroll() {
 
       let hasPlayed = false;
 
+      const swapTl = gsap.timeline({
+        paused: true,
+        repeat: -1,
+        repeatDelay: 0.25,
+      });
+      swapTl
+        .to(
+          miniRef.current,
+          {
+            scale: 1.08,
+            duration: 0.55,
+            ease: "power2.inOut",
+          },
+          0,
+        )
+        .to(
+          mainRef.current,
+          {
+            scale: 0.92,
+            duration: 0.55,
+            ease: "power2.inOut",
+          },
+          0,
+        )
+        .to(
+          miniRef.current,
+          {
+            scale: 0.9,
+            duration: 0.55,
+            ease: "power2.inOut",
+          },
+          "+=0.05",
+        )
+        .to(
+          mainRef.current,
+          {
+            scale: 1.08,
+            duration: 0.55,
+            ease: "power2.inOut",
+          },
+          "<",
+        );
+
       entranceTl
         .set(bgRef.current, { y: 120, scale: 0.95 })
         .set(miniRef.current, { x: -120, opacity: 0, scale: 0.95 })
@@ -25,91 +68,31 @@ export default function NotificationScroll() {
         .to(bgRef.current, {
           y: 0,
           scale: 1,
-          duration: 0.6,
+          duration: 0.35,
           ease: "power3.out",
         })
         .to(
           miniRef.current,
-          { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
-          "-=0.25",
+          { x: 0, opacity: 1, scale: 0.9, duration: 0.25, ease: "power3.out" },
+          "<",
         )
-        .to(miniRef.current, {
-          scale: 1.05,
-          duration: 0.25,
-          ease: "power2.out",
-        })
-        .to(miniRef.current, {
-          scale: 1,
-          duration: 0.35,
-          ease: "elastic.out(1, 0.6)",
-        })
         .to(
           mainRef.current,
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.35,
-            ease: "power3.out",
-          },
-          "-=0.25",
+          { x: 0, opacity: 1, scale: 1.08, duration: 0.25, ease: "power3.out" },
+          "<",
         )
-        .to(mainRef.current, {
-          scale: 1.1,
-          duration: 0.3,
-          ease: "power2.out",
-        })
-        .to(mainRef.current, {
-          scale: 1,
-          duration: 0.35,
-          ease: "elastic.out(1, 0.6)",
-        })
         .call(() => {
-          pulseTl.play();
-        });
-
-      const pulseTl = gsap.timeline({
-        paused: true,
-        repeat: -1,
-        repeatDelay: 0.5,
-      });
-      pulseTl
-        .to(mainRef.current, {
-          scale: 0.95,
-          duration: 0.6,
-          ease: "power2.inOut",
-        })
-        .to(mainRef.current, {
-          scale: 1.05,
-          duration: 0.6,
-          ease: "power2.inOut",
-        })
-        .to(mainRef.current, {
-          scale: 1,
-          duration: 0.4,
-          ease: "power2.out",
+          swapTl.play(0);
         });
 
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top 75%",
-        onEnter: () => {
-          if (!hasPlayed) {
-            hasPlayed = true;
-            entranceTl.play(0);
-            return;
-          }
-          pulseTl.play();
-        },
-        onEnterBack: () => {
-          if (hasPlayed) pulseTl.play();
-        },
-        onLeave: () => {
-          entranceTl.pause();
-          pulseTl.pause();
-        },
-        onLeaveBack: () => {
-          entranceTl.pause();
-          pulseTl.pause();
+        onEnter: (self) => {
+          if (hasPlayed) return;
+          hasPlayed = true;
+          entranceTl.play(0);
+          self.kill();
         },
       });
     }, sectionRef);
