@@ -92,14 +92,14 @@ const TaskMobileSliderSection = () => {
               Anywhere
             </h2>
 
-            <div className="mt-10 text-base font-semibold text-white/85 sm:text-lg">
+            <div className="mt-10 text-[16px] font-semibold text-white sm:text-lg">
               {slides[activeIndex]?.title.split("\\n").map((line, idx) => (
                 <div key={idx}>{line}</div>
               ))}
             </div>
           </div>
 
-          <div className="relative mt-12 w-full">
+          <div className="relative  w-full">
             <div className="pointer-events-none absolute left-1/2 top-1/3 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#008745]/25 blur-3xl" />
 
             <Swiper
