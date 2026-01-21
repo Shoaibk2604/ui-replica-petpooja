@@ -112,9 +112,9 @@ const TaskMobileSliderSection = () => {
               speed={800}
               watchSlidesProgress
               coverflowEffect={{
-                rotate: 22,
+                rotate: 0,
                 stretch: 0,
-                depth: 30,
+                depth: 5,
                 modifier: 1.35,
                 slideShadows: false,
               }}
@@ -135,7 +135,7 @@ const TaskMobileSliderSection = () => {
               {slides?.map((s, idx) => (
                 <SwiperSlide
                   key={idx}
-                  className="!w-[220px] sm:!w-[250px] md:!w-[320px] lg:!w-[360px]"
+                  className="!w-[220px] sm:!w-[250px] md:!w-[320px] lg:!w-[360px] py-10"
                 >
                   <div className="task-mobile-slide mx-auto">
                     <img
