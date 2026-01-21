@@ -1,9 +1,10 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import Dashboard from "./pages/dashboard";
 
 function App() {
-  const [bgOpacity, setBgOpacity] = useState(1);
+  const bgRef = useRef(null);
 
   useEffect(() => {
     let ticking = false;
@@ -15,7 +16,8 @@ function App() {
       window.requestAnimationFrame(() => {
         const y = window.scrollY || 0;
         const next = Math.max(0, Math.min(1, 1 - y / 1000));
-        setBgOpacity(next);
+        if (bgRef.current)
+          gsap.to(bgRef.current, { opacity: next, duration: 0 });
         ticking = false;
       });
     };
@@ -31,30 +33,12 @@ function App() {
   return (
     <div className="relative min-h-screen">
       <div
+        ref={bgRef}
         className="fixed inset-0 -z-10 pointer-events-none overflow-hidden"
-        style={{ opacity: bgOpacity }}
       >
-        <div
-          className="absolute -left-40 top-128 h-[500px] w-[500px] md:h-[960px] md:w-[960px] blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,135,69,0.55) 0%, rgba(0,135,69,0) 62%)",
-          }}
-        />
-        <div
-          className="absolute left-1/2 top-[10px] h-[500px] w-[500px] md:h-[960px] md:w-[960px] -translate-x-1/2 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,135,69,0.50) 0%, rgba(0,135,69,0) 64%)",
-          }}
-        />
-        <div
-          className="absolute -right-40 top-128 h-[500px] w-[500px] md:h-[960px] md:w-[960px] blur-3xl"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,135,69,0.55) 0%, rgba(0,135,69,0) 62%)",
-          }}
-        />
+        <div className="absolute -left-40 top-128 h-[500px] w-[500px] md:h-[960px] md:w-[960px] blur-3xl bg-[radial-gradient(circle,rgba(0,135,69,0.55)_0%,rgba(0,135,69,0)_62%)]" />
+        <div className="absolute left-1/2 top-[10px] h-[500px] w-[500px] md:h-[960px] md:w-[960px] -translate-x-1/2 blur-3xl bg-[radial-gradient(circle,rgba(0,135,69,0.50)_0%,rgba(0,135,69,0)_64%)]" />
+        <div className="absolute -right-40 top-128 h-[500px] w-[500px] md:h-[960px] md:w-[960px] blur-3xl bg-[radial-gradient(circle,rgba(0,135,69,0.55)_0%,rgba(0,135,69,0)_62%)]" />
       </div>
 
       <div className="pt-14">
