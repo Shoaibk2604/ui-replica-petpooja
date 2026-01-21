@@ -118,12 +118,6 @@ const TaskMobileSliderSection = () => {
               ))}
             </Swiper>
           </div>
-
-          <img
-            src={sliderCurve}
-            alt=""
-            className="pointer-events-none absolute bottom-0 left-0 w-full select-none"
-          />
         </div>
       </div>
     </section>
