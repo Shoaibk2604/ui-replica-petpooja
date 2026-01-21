@@ -3,47 +3,48 @@ import collaborationImg2 from "../../assets/download (2).png";
 import collaborationImg3 from "../../assets/download (3).png";
 import collaborationImg4 from "../../assets/download (4).png";
 import collaborationImg6 from "../../assets/download (6).png";
+import NotificationScroll from "../../components/animation/CardAnimation";
 
 const CollaborationSection = () => {
   const items = [
     {
       id: 0,
-      image: collaborationImg1,
+      animation: <NotificationScroll />,
       title: "Manage complicated projects easily",
       description:
         "Manage projects and tasks easily from one place. Identify delays, view workloads, and see where your attention is needed everything from one screen. Keep everyone aligned.",
     },
     {
       id: 1,
-      image: collaborationImg2,
+      animation: <NotificationScroll />,
       title: "Start new projects in minutes",
       description:
         "Use pre-built templates to skip repetitive project assignments. Choose from 150+ ready-to-use templates to instantly launch projects and start executing.",
     },
     {
       id: 2,
-      image: collaborationImg3,
+      animation: <NotificationScroll />,
       title: "Send automatic reminders to teams",
       description:
         "Never ask for follow-ups again. Automatically send reminders for new tasks, delays, and completions via WhatsApp and in-app notifications, so deadlines are never missed.",
     },
     {
       id: 3,
-      image: collaborationImg4,
+      animation: <NotificationScroll />,
       title: "Easily assign location based tasks",
       description:
         "Assign tasks to field teams for specific locations using smart geofencing. Ensure every task is completed at the right place and the right time. Control where teams can log in from.",
     },
     {
       id: 4,
-      image: collaborationImg6,
+      animation: <NotificationScroll />,
       title: "Work easily with cross teams",
       description:
         "Create dependent and group tasks with cross teams easily. Add multiple members in a task. Let everyone know who's waiting on what. Seamless coordination.",
     },
     {
       id: 5,
-      image: collaborationImg1,
+      animation: <NotificationScroll />,
       title: "Let AI check the work for you",
       description:
         "Skip spending hours on manual proof checks. Upload an image and let AI instantly verify the task. It flags errors and automatically confirms when a task is completed.",
@@ -67,11 +68,7 @@ const CollaborationSection = () => {
                 className={`grid items-center md:grid-cols-[40%_60%] ${idx !== 0 ? "mt-[128px]" : ""}`}
               >
                 <div className="relative mx-auto w-full max-w-[620px]">
-                  <img
-                    src={item.image}
-                    alt="Collaboration"
-                    className="h-auto w-full max-w-full object-contain md:max-h-none max-h-[420px]"
-                  />
+                  {item?.animation}
                 </div>
 
                 <div className="mx-auto w-full max-w-[760px] text-left md:text-left">
