@@ -1,10 +1,11 @@
 import "./App.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Dashboard from "./pages/dashboard";
 
 function App() {
   const bgRef = useRef(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -18,6 +19,11 @@ function App() {
         const next = Math.max(0, Math.min(1, 1 - y / 1000));
         if (bgRef.current)
           gsap.to(bgRef.current, { opacity: next, duration: 0 });
+
+        setShowBackToTop((prev) => {
+          const nextShow = y > 200;
+          return prev === nextShow ? prev : nextShow;
+        });
         ticking = false;
       });
     };
@@ -46,10 +52,33 @@ function App() {
         <button
           type="button"
           onClick={scrollToTop}
-          className="fixed right-10 cursor-pointer bottom-10 z-50 flex h-10 w-10 px-5 items-center justify-center rounded-[10px] border border-white/20 bg-white text-[#4B5563] transition-colors hover:border-[#008745] hover:bg-[#008745] hover:text-white"
+          className={`fixed right-10 cursor-pointer bottom-10 z-50 flex h-10 w-10 items-center justify-center rounded-[10px] border border-white/20 bg-white text-[#4B5563] transition-all duration-200 hover:border-[#008745] hover:bg-[#008745] hover:text-white ${
+            showBackToTop
+              ? "opacity-100"
+              : "pointer-events-none opacity-0 translate-y-1"
+          }`}
           aria-label="Back to top"
         >
-          <span className="inline-block -rotate-90 text-2xl">{">"}</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+          >
+            <path
+              d="M12 5v14"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M6 11l6-6 6 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
       </div>
     </div>
