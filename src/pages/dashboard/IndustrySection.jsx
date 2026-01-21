@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import hospitality from "../../assets/hotel_logo.svg";
 import education from "../../assets/education_logo.svg";
@@ -11,6 +11,8 @@ import finance from "../../assets/finance_logo.svg";
 import events from "../../assets/events_logo.svg";
 
 const IndustrySection = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(2);
+
   const items = [
     { label: "Hospitality", icon: hospitality },
     { label: "Education", icon: education },
@@ -23,6 +25,62 @@ const IndustrySection = () => {
     { label: "Events", icon: events },
     { label: "Corporates", icon: events },
   ];
+
+  const desktopItems = [
+    { label: "Hospitality", icon: hospitality },
+    { label: "Education", icon: education },
+    { label: "Health Care", icon: healthcare },
+    { label: "Retail Store", icon: retailStore },
+    { label: "Events", icon: events },
+    { label: "Corporates", icon: events },
+  ];
+
+  const getCardStyle = (index) => {
+    const centerIndex = hoveredIndex;
+    const diff = index - centerIndex;
+
+    if (diff === 0) {
+      return {
+        transform: "perspective(1000px) rotateY(0deg) scale(1.1)",
+        zIndex: 10,
+        opacity: 1,
+      };
+    } else if (diff === -1) {
+      return {
+        transform:
+          "perspective(1000px) rotateY(25deg) translateX(-20px) scale(0.95)",
+        zIndex: 5,
+        opacity: 0.9,
+      };
+    } else if (diff === 1) {
+      return {
+        transform:
+          "perspective(1000px) rotateY(-25deg) translateX(20px) scale(0.95)",
+        zIndex: 5,
+        opacity: 0.9,
+      };
+    } else if (diff === -2) {
+      return {
+        transform:
+          "perspective(1000px) rotateY(35deg) translateX(-40px) scale(0.85)",
+        zIndex: 3,
+        opacity: 0.7,
+      };
+    } else if (diff === 2) {
+      return {
+        transform:
+          "perspective(1000px) rotateY(-35deg) translateX(40px) scale(0.85)",
+        zIndex: 3,
+        opacity: 0.7,
+      };
+    } else {
+      return {
+        transform: "perspective(1000px) rotateY(45deg) scale(0.75)",
+        zIndex: 1,
+        opacity: 0.5,
+      };
+    }
+  };
 
   return (
     <section className="w-full overflow-hidden text-white">
@@ -46,7 +104,8 @@ const IndustrySection = () => {
             </span>
           </a>
 
-          <div className="mt-14 grid grid-cols-2 gap-y-12 sm:grid-cols-3 md:grid-cols-5">
+          {/* Mobile/Tablet Grid Layout */}
+          <div className="mt-14 grid grid-cols-2 gap-y-12 sm:grid-cols-3 md:hidden">
             {items.map((it) => (
               <div key={it.label} className="flex flex-col items-center">
                 <div className="flex h-16 w-16 items-center justify-center">
@@ -58,6 +117,42 @@ const IndustrySection = () => {
                 </div>
                 <div className="text-white text-base sm:text-lg">
                   {it.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop 3D Card Layout */}
+          <div className="mt-14 hidden md:flex justify-center items-center gap-4 perspective-[1200px]">
+            {desktopItems.map((it, index) => (
+              <div
+                key={it.label}
+                className="relative cursor-pointer transition-all duration-500 ease-out"
+                style={getCardStyle(index)}
+                onMouseEnter={() => setHoveredIndex(index)}
+              >
+                <div
+                  className={`relative w-[160px] h-[180px] rounded-2xl flex flex-col items-center justify-center gap-4 transition-all duration-500
+                    ${
+                      index === hoveredIndex
+                        ? "bg-gradient-to-b from-[#0a1f15] to-[#0d1a14] border-2 border-[#008745] shadow-[0_0_30px_rgba(0,135,69,0.3)]"
+                        : "bg-gradient-to-b from-[#0a1a12] to-[#0d1510] border border-[#1a3d2a]"
+                    }`}
+                >
+                  <div className="flex h-14 w-14 items-center justify-center">
+                    {it.icon ? (
+                      <img src={it.icon} alt="" className="h-full w-full" />
+                    ) : (
+                      <div className="h-10 w-10 rounded bg-white/5" />
+                    )}
+                  </div>
+                  <div
+                    className={`text-base font-medium transition-all duration-300 ${
+                      index === hoveredIndex ? "text-white" : "text-white/80"
+                    }`}
+                  >
+                    {it.label}
+                  </div>
                 </div>
               </div>
             ))}
