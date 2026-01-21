@@ -17,7 +17,7 @@ export default function NotificationScroll() {
       const tl = gsap.timeline({
         paused: true,
         repeat: -1,
-        repeatDelay: 0.8,
+        repeatDelay: 4,
       });
 
       tl.set(bgRef.current, { y: 120, scale: 0.95 })
@@ -79,7 +79,7 @@ export default function NotificationScroll() {
       ref={sectionRef}
       className="relative flex max-h-[120vh] items-center justify-center bg-black"
     >
-      <div className="relative h-[380px] w-[380px]">
+      <div className="relative md:h-[320px] md:w-[320px] sm:h-[320px] sm:w-[320px] h-[280px] w-[280px]">
         {/* Background Card */}
         <div
           ref={bgRef}
@@ -90,7 +90,7 @@ export default function NotificationScroll() {
         <div ref={miniRef} className="absolute left-[-20px] top-6 w-[260px]">
           <div className="relative overflow-hidden rounded-2xl p-[2px]">
             <div className="absolute inset-0 bg-[conic-gradient(from_0deg,rgba(0,135,69,0)_0deg,rgba(0,135,69,1)_60deg,rgba(0,135,69,0)_140deg)] animate-[spin_2.2s_linear_infinite]" />
-            <div className="relative z-10 rounded-2xl bg-zinc-900 px-4 py-3 text-sm text-white shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
+            <div className="relative z-10 rounded-2xl bg-zinc-900 px-4 py-3 text-[10px] text-white shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
               <p className="font-medium">Petpooja Task</p>
               <p className="text-zinc-400">Task is marked completed</p>
             </div>
@@ -100,27 +100,31 @@ export default function NotificationScroll() {
         {/* Main WhatsApp Card */}
         <div
           ref={mainRef}
-          className="absolute bottom-6 right-[-20px] w-[250px] h-[240px]"
+          className="absolute bottom-[-50px] right-[-50px] sm:bottom-[-30px] sm:right-[-50px] md:bottom-[-25px] md:right-[-20px] w-[250px] h-[240px]"
         >
           <div className="relative overflow-hidden rounded-2xl p-[2px]">
             <div className="absolute inset-0 bg-[conic-gradient(from_0deg,rgba(0,135,69,0)_0deg,rgba(0,135,69,1)_90deg,rgba(0,135,69,0)_180deg)] animate-[spin_3.2s_linear_infinite]" />
             <div className="relative z-10 rounded-2xl bg-zinc-900 p-5 text-white shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
               <div className="mb-3 flex items-center gap-2 text-green-500">
-                <span className="text-sm font-semibold">WhatsApp</span>
+                <span className="text-[12px] font-semibold">WhatsApp</span>
               </div>
 
-              <p className="mb-2 text-sm font-medium">
+              <p className="mb-2 text-[10px] font-medium">
                 Petpooja Tasks : Task Is Marked Completed
               </p>
 
-              <p className="text-sm text-zinc-400">
-                Task Name – AC maintenance
+              <p className="text-[10px] text-zinc-400">
+                Task Name {"–"} AC maintenance
               </p>
-              <p className="text-sm text-zinc-400">Outlet – Indraprastha</p>
+              <p className="text-[10px] text-zinc-400">
+                Outlet {"–"} Indraprastha
+              </p>
 
-              <p className="mt-3 text-sm">Keep going to finish your tasks</p>
+              <p className="mt-1 text-[10px]">
+                Keep going to finish your tasks
+              </p>
 
-              <p className="mt-4 text-sm text-zinc-400">
+              <p className="mt-2 text-[10px] text-zinc-400">
                 Best
                 <br />
                 Petpooja Tasks

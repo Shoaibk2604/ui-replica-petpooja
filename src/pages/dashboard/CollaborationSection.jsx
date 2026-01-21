@@ -1,8 +1,3 @@
-import collaborationImg1 from "../../assets/download (1).png";
-import collaborationImg2 from "../../assets/download (2).png";
-import collaborationImg3 from "../../assets/download (3).png";
-import collaborationImg4 from "../../assets/download (4).png";
-import collaborationImg6 from "../../assets/download (6).png";
 import NotificationScroll from "../../components/animation/CardAnimation";
 
 const CollaborationSection = () => {
@@ -71,7 +66,7 @@ const CollaborationSection = () => {
                   {item?.animation}
                 </div>
 
-                <div className="mx-auto w-full max-w-[760px] text-left md:text-left">
+                <div className="mx-auto mt-8 sm:mt-4 md:mt-0 w-full max-w-[760px] text-left md:text-left">
                   <h3 className="text-white mb-4 md:text-[42px] text-[20px] font-medium">
                     {item.title}
                   </h3>
