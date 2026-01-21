@@ -99,10 +99,11 @@ const Header = () => {
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const hadOverflowHidden =
+      document.body.classList.contains("overflow-hidden");
+    document.body.classList.add("overflow-hidden");
     return () => {
-      document.body.style.overflow = prevOverflow;
+      if (!hadOverflowHidden) document.body.classList.remove("overflow-hidden");
     };
   }, [mobileMenuOpen]);
 
@@ -181,8 +182,8 @@ const Header = () => {
             onClick={() => setMobileMenuOpen(false)}
           />
           <div
-            className={`absolute right-0 top-0 h-full w-[100%] max-w-[360px] bg-black/90 backdrop-blur-xl border-l border-white/10 transition-transform duration-300 ${
-              mobileMenuOpen ? "translate-x-0" : "translate-x-100"
+            className={`absolute right-0 top-0 h-full w-full bg-black/90 backdrop-blur-xl border-l border-white/10 transition-transform duration-300 ${
+              mobileMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
             role="dialog"
             aria-modal="true"

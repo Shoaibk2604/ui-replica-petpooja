@@ -114,7 +114,7 @@ const TaskMobileSliderSection = () => {
               coverflowEffect={{
                 rotate: 22,
                 stretch: 0,
-                depth: 320,
+                depth: 30,
                 modifier: 1.35,
                 slideShadows: false,
               }}
